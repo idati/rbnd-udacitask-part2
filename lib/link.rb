@@ -13,6 +13,10 @@ class LinkItem
     @site_name ? @site_name : ""
   end
   def details
-    format_description(@description) + "site name: " + format_name
+    if !@site_name
+      format_description(@description) if !@site_name
+    else
+      format_description(@description) + "site name: " + format_name
+    end
   end
 end
