@@ -7,17 +7,19 @@ class TodoItem
   attr_reader :description, :due, :priority
 
   def initialize(description, options={})
-    #puts Chronic.parse(options[:due]) ? (Chronic.parse(options[:due])).to_date : (raise UdaciListErrors::InvalidDateValue, "can't read date")
-    #puts Date.parse(options[:due])
     @description = description
-    #@due = options[:due] ? Date.parse((options[:due])) : options[:due]
-    @due = options[:due] ? (Chronic.parse(options[:due]) ? (Chronic.parse(options[:due])).to_date : (raise UdaciListErrors::InvalidDateValue, "can't read date")) : options[:due]
-    #@priority = options[:priority]
-    #puts options[:priority]
-    #puts ["high", "medium", "low", nil, ""].include?options[:priority]
-    options[:priority] ? (["high", "medium", "low"].include?("#{options[:priority]}") ? (@priority = options[:priority]) : (raise UdaciListErrors::InvalidPriorityValue, "priority type #{options[:priority]} not known")): @priority = options[:priority]
+    @due = get_due(options[:due])
+    @priority = get_prio(options[:priority])
   end
 
+  def get_due(input)
+      input ? (Chronic.parse(input) ? Chronic.parse(input).to_date : (raise UdaciListErrors::InvalidDateValue, "can't read date")) : input
+  end
+  
+  def get_prio(input)
+    input ? (["high", "medium", "low"].include?("#{input}") ? (input) : (raise UdaciListErrors::InvalidPriorityValue, "priority type #{input} not known")): input
+  end
+    
   def details
     format_description(@description) + "due: " +
     format_date(due: @due) +
