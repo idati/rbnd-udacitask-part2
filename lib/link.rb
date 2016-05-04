@@ -1,4 +1,4 @@
-require_relative 'listable'
+#require_relative 'listable'
 
 class LinkItem
   include Listable
