@@ -2,9 +2,10 @@ require_relative 'listable'
 
 class LinkItem
   include Listable
-  attr_reader :description, :site_name
+  attr_reader :type, :description, :site_name
 
-  def initialize(url, options={})
+  def initialize(type, url, options={})
+    @type = type
     @description = url
     @site_name = options[:site_name]
   end
@@ -13,6 +14,7 @@ class LinkItem
     @site_name ? @site_name : ""
   end
   def details
+    format_type(@type)+
     if !@site_name
       format_description(@description) if !@site_name
     else

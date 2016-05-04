@@ -4,9 +4,10 @@ require_relative 'listable'
 
 class TodoItem
   include Listable
-  attr_reader :description, :due, :priority
+  attr_reader :type, :description, :due, :priority
 
-  def initialize(description, options={})
+  def initialize(type, description, options={})
+    @type = type
     @description = description
     @due = get_due(options[:due])
     @priority = get_prio(options[:priority])
@@ -21,6 +22,7 @@ class TodoItem
   end
     
   def details
+    format_type(@type)+
     format_description(@description) + "due: " +
     format_date(due: @due) +
     format_priority(@priority)

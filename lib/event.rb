@@ -2,9 +2,10 @@ require_relative 'listable'
 
 class EventItem
   include Listable
-  attr_reader :description, :start_date, :end_date
+  attr_reader :type, :description, :start_date, :end_date
 
-  def initialize(description, options={})
+  def initialize(type, description, options={})
+    @type = type
     @description = description
     @start_date = get_start(options[:start_date])
     @end_date = get_end(options[:end_date])
@@ -20,6 +21,8 @@ class EventItem
   
   
   def details
-    format_description(@description) + "event dates: " + format_date(start_date: @start_date, end_date: @end_date)
+    format_type(@type)+
+    format_description(@description) + "event dates: " + 
+      format_date(start_date: @start_date, end_date: @end_date)
   end
 end

@@ -7,7 +7,7 @@ class UdaciList
   end
   def add(type, description, options={})
     type = type.downcase
-    tmp=[TodoItem.new(description, options), EventItem.new(description, options), LinkItem.new(description, options)]
+    tmp=[TodoItem.new(type, description, options), EventItem.new(type, description, options), LinkItem.new(type, description, options)]
     (tmp.find {|type_tmp| ((type_tmp.to_s[2...6].downcase == type)||(type_tmp.to_s[2...7].downcase == type))}) ? \
       (@items.push tmp.find {|type_tmp| ((type_tmp.to_s[2...6].downcase == type)||(type_tmp.to_s[2...7].downcase == type))}) : \
       (raise UdaciListErrors::InvalidItemType, "sorry #{type} not known in udacilist")    
