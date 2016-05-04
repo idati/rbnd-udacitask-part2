@@ -1,5 +1,5 @@
 
-#require_relative 'listable'
+require_relative 'listable'
 #require_relative 'errors'
 
 class TodoItem
@@ -12,7 +12,10 @@ class TodoItem
     @description = description
     #@due = options[:due] ? Date.parse((options[:due])) : options[:due]
     @due = options[:due] ? (Chronic.parse(options[:due]) ? (Chronic.parse(options[:due])).to_date : (raise UdaciListErrors::InvalidDateValue, "can't read date")) : options[:due]
-    @priority = options[:priority]
+    #@priority = options[:priority]
+    #puts options[:priority]
+    #puts ["high", "medium", "low", nil, ""].include?options[:priority]
+    options[:priority] ? (["high", "medium", "low"].include?("#{options[:priority]}") ? (@priority = options[:priority]) : (raise UdaciListErrors::InvalidPriorityValue, "priority type #{options[:priority]} not known")): @priority = options[:priority]
   end
 
   def details

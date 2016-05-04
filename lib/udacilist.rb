@@ -19,7 +19,9 @@ class UdaciList
     #type == "link" ? (@items.push LinkItem.new(description, options)) : (raise UdaciListErrors::InvalidItemType, "sorry #{type} not known in udacilist")
   end
   def delete(index)
-    @items.delete_at(index - 1)
+    #puts (index-1)
+    #puts @items.length
+    ((index) <= @items.length) ? (@items.delete_at(index - 1)) : (raise UdaciListErrors::IndexExceedsListSize, "todo list size #{@items.length} smaller than index #{index}")
   end
   
   def all
