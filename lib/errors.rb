@@ -11,4 +11,8 @@ module UdaciListErrors
   
   class InvalidDateValue < StandardError
   end
+  
+  class InvalidFilterType < StandardError
+  end
+  
 end
