@@ -14,12 +14,9 @@ class LinkItem
     @site_name ? @site_name : ""
   end
   def details
-    format_type(@type)+
-    if !@site_name
-      format_description(@description) if !@site_name
-    else
-      format_description(@description) + "site name: " + format_name
-    end
+    detail_type +
+    detail_description +
+    detail_date
   end
   def detail_type
     format_type(@type)
@@ -28,7 +25,7 @@ class LinkItem
      format_description(@description)
   end
   def detail_date
-      ("site name: " + format_name) if @site_name
+       @site_name ? ("site name: " + format_name) : ""
   end
   def detail_priority
     false

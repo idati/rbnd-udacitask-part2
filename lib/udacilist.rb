@@ -47,7 +47,7 @@ class UdaciList
   end
   
   def nice_plot
-    table = Terminal::Table.new :title => @title, :headings => ["#", "Event", "Description", "Date", "Priority"] do |t|
+    table = Terminal::Table.new :title => @title, :headings => ["#", "Event-Type", "Description", "Date/Information", "Priority"] do |t|
     @items.each_with_index { |item, position| t << ["#{position + 1})", "#{item.detail_type}", "#{item.detail_description}", "#{item.detail_date}", item.detail_priority ? "#{item.detail_priority}" : ""]
                                               t.add_separator if position<@items.length-1
                                             }

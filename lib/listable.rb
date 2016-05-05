@@ -23,9 +23,10 @@ module Listable
   end
   
   def format_priority(priority)
-    value = " â‡".red if priority == "high"
-    value = " â‡¨".yellow if priority == "medium"
-    value = " â‡©".green if priority == "low"
+    value = " ©".red if priority == "urgent"
+    value = " ©".black if priority == "high"
+    value = " ©".blue if priority == "medium"
+    value = " ©".green if priority == "low"
     value = "" if !priority
     return value
   end

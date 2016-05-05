@@ -21,9 +21,9 @@ class EventItem
   
   
   def details
-    format_type(@type)+
-    format_description(@description) + "event dates: " + 
-      format_date(start_date: @start_date, end_date: @end_date)
+    detail_type +
+    detail_description +
+    detail_date
   end
   def detail_type
     format_type(@type)

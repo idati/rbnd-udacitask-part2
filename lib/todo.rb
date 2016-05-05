@@ -22,10 +22,11 @@ class TodoItem
   end
     
   def details
-    format_type(@type)+
-    format_description(@description) + "due: " +
-    format_date(due: @due) +
-    format_priority(@priority)
+    detail_type + detail_description + detail_date + detail_priority
+    #format_type(@type)+
+    #format_description(@description) + "due: " +
+    #format_date(due: @due) +
+    #format_priority(@priority)
   end
   def detail_type
     format_type(@type)
