@@ -27,4 +27,17 @@ class TodoItem
     format_date(due: @due) +
     format_priority(@priority)
   end
+  def detail_type
+    format_type(@type)
+  end
+  def detail_description
+     format_description(@description)
+  end
+  def detail_date
+    "due: " +
+    format_date(due: @due)
+  end
+  def detail_priority
+    format_priority(@priority)
+  end
 end

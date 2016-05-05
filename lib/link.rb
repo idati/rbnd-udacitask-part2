@@ -21,4 +21,16 @@ class LinkItem
       format_description(@description) + "site name: " + format_name
     end
   end
+  def detail_type
+    format_type(@type)
+  end
+  def detail_description
+     format_description(@description)
+  end
+  def detail_date
+      ("site name: " + format_name) if @site_name
+  end
+  def detail_priority
+    false
+  end
 end

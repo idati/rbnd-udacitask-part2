@@ -1,6 +1,4 @@
-# -*- coding: utf-8 -*-
-
-
+# coding: Windows-1254
 module Listable
   # Listable methods go here
   def format_type(type)
@@ -25,7 +23,7 @@ module Listable
   end
   
   def format_priority(priority)
-    value = " ⇧".red if priority == "high"
+    value = " �".red if priority == "high"
     value = " ⇨".yellow if priority == "medium"
     value = " ⇩".green if priority == "low"
     value = "" if !priority

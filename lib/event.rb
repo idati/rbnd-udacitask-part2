@@ -25,4 +25,17 @@ class EventItem
     format_description(@description) + "event dates: " + 
       format_date(start_date: @start_date, end_date: @end_date)
   end
+  def detail_type
+    format_type(@type)
+  end
+    def detail_description
+     format_description(@description)
+  end
+  def detail_date
+    "event dates: " +
+    format_date(start_date: @start_date, end_date: @end_date)
+  end
+  def detail_priority
+    false
+  end
 end

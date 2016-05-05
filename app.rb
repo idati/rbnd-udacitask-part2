@@ -1,7 +1,8 @@
  require 'chronic'
  require 'colorize'
+ require 'terminal-table'
+ require 'date'
 # Find a third gem of your choice and add it to your project
-require 'date'
 require_relative "lib/listable"
 require_relative "lib/errors"
 require_relative "lib/udacilist"
@@ -48,3 +49,4 @@ list.all
  #new_list.filter("todo")
  #new_list.filter("link")
  #new_list.filter("links")
+ new_list.nice_plot
