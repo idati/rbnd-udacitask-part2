@@ -1,13 +1,44 @@
 # What you added to Udacitask 2.0
 # -------------------------------------------------------
 1. What is the gem of your choice and how did you use it?
+used the gem terminal-table, to make a nice plot of the list; first i split the details data into this parts
+["#", "Event-Type", "Description", "Date/Information", "Priority"] afterwards i used the gem as described in the documentation;
+was not hard to use.
 2. Describe the 2 features you added to the project.
-  a) Feature 1...
-  b) Feature 2...
+  a) Feature 1: nice_plot uses the gem terminal-table to bring the list in a grid form, f.e.
+x------x--------------x----------------------------------x-------------------------------------x------------x
+|                                                Untitled List                                              |
+x------x--------------x----------------------------------x-------------------------------------x------------x
+|   #  |   Event-Type |   Description                    |   Date/Information                  |   Priority |
+x------x--------------x----------------------------------x-------------------------------------x------------x
+|   1) |   todo       |   Buy more dog food              |   due: 06/09/16                     |    ©       |
+x------x--------------x----------------------------------x-------------------------------------x------------x
+|   2) |   todo       |   Go dancing                     |   due: 05/05/16                     |            |
+x------x--------------x----------------------------------x-------------------------------------x------------x
+|   3) |   todo       |   Buy groceries                  |   due: No due date                  |    ©       |
+x------x--------------x----------------------------------x-------------------------------------x------------x
+|   4) |   event      |   Birthday Party                 |   event dates: 05/31/16             |            |
+x------x--------------x----------------------------------x-------------------------------------x------------x
+|   5) |   event      |   Vacation                       |   event dates: 12/20/16 -- 12/30/16 |            |
+x------x--------------x----------------------------------x-------------------------------------x------------x
+|   6) |   event      |   Life happens                   |   event dates: No due date          |            |
+x------x--------------x----------------------------------x-------------------------------------x------------x
+|   7) |   link       |   https://www.udacity.com/       |   site name: Udacity Homepage       |            |
+x------x--------------x----------------------------------x-------------------------------------x------------x
+|   8) |   link       |   http://ruby-doc.org            |                                     |            |
+x------x--------------x----------------------------------x-------------------------------------x------------x
+
+  b) Feature 2: Change the priority levels of items, added urgent level.
 
 # REFLECTIONS
 # -------------------------------------------------------
 1. How long did you spend working on this project?
+15 - 18 hours
 2. What was the most rewarding challenge you conquered?
+?... i was not able to plot the priority arrows in my ruby version, spend hours in google to find
+useful information. My conclusion i am using utf-8 encoding in europe and
+in us the use ascii-8? Still open point?
 3. What two additional features did you build? Why?
+used features as requested in the project.
 4. Where do you still have room to grow?
+definitive in the gem sector there are so many of them, its very hard to find the best gem.
