@@ -1,15 +1,15 @@
 class UdaciList
   attr_reader :title, :items
-
+  @@tmp=[]
   def initialize(options={})
     options[:title] ? @title = options[:title] : @title = "Untitled List" 
     @items = []
   end
   def add(type, description, options={})
     type = type.downcase
-    tmp=[TodoItem.new(type, description, options), EventItem.new(type, description, options), LinkItem.new(type, description, options)]
-    (tmp.find {|type_tmp| ((type_tmp.to_s[2...6].downcase == type)||(type_tmp.to_s[2...7].downcase == type))}) ? \
-      (@items.push tmp.find {|type_tmp| ((type_tmp.to_s[2...6].downcase == type)||(type_tmp.to_s[2...7].downcase == type))}) : \
+    @@tmp=([TodoItem.new(type, description, options), EventItem.new(type, description, options), LinkItem.new(type, description, options)])
+    (@@tmp.find {|type_tmp| ((type_tmp.to_s[2...6].downcase == type)||(type_tmp.to_s[2...7].downcase == type))}) ? \
+      (@items.push @@tmp.find {|type_tmp| ((type_tmp.to_s[2...6].downcase == type)||(type_tmp.to_s[2...7].downcase == type))}) : \
       (raise UdaciListErrors::InvalidItemType, "sorry #{type} not known in udacilist")    
   end
   def delete(index)
@@ -19,8 +19,10 @@ class UdaciList
   
   def filter(input_type)
     type_container=[]
-    @items.each{|types| type_container.push(types.class.to_s[0...-4].downcase) unless type_container.include?(types.class.to_s[0...-4].downcase)}
-    type_container.include?(input_type) ? filter_out(input_type) : (raise UdaciListErrors::InvalidFilterType, "sorry #{input_type} not available in udacilist")
+    item_container=[]
+    @items.each{|types| item_container.push(types.class.to_s[0...-4].downcase) unless item_container.include?(types.class.to_s[0...-4].downcase)}
+    @@tmp.each{|types| type_container.push(types.class.to_s[0...-4].downcase)}
+    type_container.include?(input_type) ? (item_container.include?(input_type) ? filter_out(input_type) : (puts "no #{input_type} in use")) : (raise UdaciListErrors::InvalidFilterType, "sorry #{input_type} not available in udacilist")
   end
   
   def filter_out(input_type)
@@ -32,9 +34,6 @@ class UdaciList
         puts "#{position + 1}) #{item.details}"
       end
     end
-#    @items.select{|types| types.class.to_s[0...-4].downcase==input_type}.each_with_index do |item, position|
-#      puts "#{position + 1}) #{item.details}"
-#    end
   end
   
   def all

@@ -30,8 +30,8 @@ list.all
  new_list.add("event", "Birthday Party", start_date: "May 31")
  new_list.add("event", "Vacation", start_date: "Dec 20", end_date: "Dec 30")
  new_list.add("event", "Life happens")
- new_list.add("link", "https://www.udacity.com/", site_name: "Udacity Homepage")
- new_list.add("link", "http://ruby-doc.org")
+ #new_list.add("link", "https://www.udacity.com/", site_name: "Udacity Homepage")
+ #new_list.add("link", "http://ruby-doc.org")
 
 # SHOULD RETURN ERROR MESSAGES
 # ----------------------------
@@ -45,8 +45,8 @@ list.all
 
 # DEMO FILTER BY ITEM TYPE
 # ------------------------
- new_list.filter("event")
+ #new_list.filter("event")
  #new_list.filter("todo")
- #new_list.filter("link")
+ new_list.filter("link")
  #new_list.filter("links")
  new_list.nice_plot

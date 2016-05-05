@@ -36,6 +36,6 @@ class EventItem
     format_date(start_date: @start_date, end_date: @end_date)
   end
   def detail_priority
-    false
+    nil
   end
 end

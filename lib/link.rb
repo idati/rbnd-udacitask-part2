@@ -28,6 +28,6 @@ class LinkItem
        @site_name ? ("site name: " + format_name) : ""
   end
   def detail_priority
-    false
+    nil
   end
 end

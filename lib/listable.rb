@@ -1,6 +1,5 @@
 # coding: Windows-1254
 module Listable
-  # Listable methods go here
   def format_type(type)
     "#{type}".ljust(10)
   end
@@ -19,7 +18,6 @@ module Listable
     if option[:due] != {}
       option[:due] ? option[:due].strftime("%D") : "No due date"
     end
-    #return dates
   end
   
   def format_priority(priority)
